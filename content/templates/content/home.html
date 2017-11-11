@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4 text-center">Welcome to TimeTracker</h1>
+  <p class = "lead">
+    A web app designed to keep track of productivity and where you
+    spend your time. Whether you're a freelancer looking to more
+    accurately bill your clients, or a hobbyist who wants to know
+    how much time you spend learning that new thing, TimeTracker
+    will allow you to track projects, specify what tasks were accomplished
+    within a given work period, and see stats about your productivity.
+  </p>
+  <p class="text-center"><a href = "{% url 'accounts:register' %}" class="btn btn-lg btn-success">Sign Up Today</a></p>
+</div>
+{% endblock %}

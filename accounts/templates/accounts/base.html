@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TimeTracker</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      {% if user.is_authenticated %}
+        <header class="header clearfix">
+          <nav>
+            <ul class="nav nav-pills float-right">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:dashboard' %}">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:edit_profile' %}">Edit Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:change_password' %}">Change Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'content:docs' %}">Documentation</a>
+              </li>
+            </ul>
+          </nav>
+          <a class="nav-link" href= "{% url 'accounts:dashboard' %}"><h3 class="text-muted">TimeTracker</h3></a>
+        </header>
+      {% else %}
+      <header class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:reset_password' %}">Reset Password</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'content:docs' %}">Documentation</a>
+            </li>
+          </ul>
+        </nav>
+        <a class="nav-link" href= "{% url 'content:home' %}"><h3 class="text-muted">TimeTracker</h3></a>
+      </header>
+      {% endif %}
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</html>
