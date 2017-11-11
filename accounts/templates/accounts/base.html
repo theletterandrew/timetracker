@@ -19,7 +19,7 @@
                 <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:dashboard' %}">Dashboard</a>
+                <a class="nav-link" href="{% url 'timemanager:manager' %}">Dashboard</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'accounts:edit_profile' %}">Edit Profile</a>
@@ -32,7 +32,7 @@
               </li>
             </ul>
           </nav>
-          <a class="nav-link" href= "{% url 'accounts:dashboard' %}"><h3 class="text-muted">TimeTracker</h3></a>
+          <a class="nav-link" href= "{% url 'timemanager:manager' %}"><h3 class="text-muted">TimeTracker</h3></a>
         </header>
       {% else %}
       <header class="header clearfix">

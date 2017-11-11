@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-3 text-center">Dashboard</h1>
+</div>
+<div class="row">
+  <div class="col-6">
+    <h2 class = 'display-4'>Projects</h2>
+  </div>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-6">
+    <a href="{% url 'timemanager:add' %}" class="btn btn-lg btn-primary btn-block">Add Project</a>
+  </div>
+</div>
+{% endblock %}
