@@ -1,16 +1,36 @@
 {% extends 'accounts/base.html' %}
+
 {% block content %}
 <div class="jumbotron">
   <h1 class="display-3 text-center">Dashboard</h1>
 </div>
 <div class="row">
-  <div class="col-6">
+  <div class="col-12">
     <h2 class = 'display-4'>Projects</h2>
   </div>
 </div>
+{% if projects %}
+{% for project in projects %}
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">{{ project.name }}</h4>
+        <p class="card-text">{{ project.description }}</p>
+        <a href="#" class="btn btn-primary">Track Project</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<h3>You don't have any projects yet! Add a new project to get started.</h3>
+{% endif %}
+<br>
 <div class="row justify-content-md-center">
   <div class="col-6">
     <a href="{% url 'timemanager:add' %}" class="btn btn-lg btn-primary btn-block">Add Project</a>
   </div>
 </div>
+<br>
 {% endblock %}

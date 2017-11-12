@@ -127,13 +127,12 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'timetracker/media')
 
-LOGIN_REDIRECT_URL = '/accounts/dashboard/'
+LOGIN_REDIRECT_URL = '/manager/'
 
 LOGIN_URL = '/accounts/login/'
 
 LOGIN_EXEMPT_URLS = [
     r'^$',
-    r'^docs/$',
     r'^accounts/logout/$',
     r'^accounts/register/$',
     r'^accounts/reset-password/$',
