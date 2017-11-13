@@ -11,12 +11,15 @@ def manager(request):
 
 def add(request):
     if request.method == 'POST':
-        form = ProjectForm(request.POST, instance=request.user)
+        form = ProjectForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            proj = form.save()
+            proj.user = request.user
+            proj.save()
+
             return redirect('timemanager:manager')
     else:
-        form = ProjectForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'timemanager/add.html', args)
+        form = ProjectForm()
+    args = {'form': form}
+    return render(request, 'timemanager/add.html', args)
