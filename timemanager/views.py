@@ -23,3 +23,7 @@ def add(request):
         form = ProjectForm()
     args = {'form': form}
     return render(request, 'timemanager/add.html', args)
+
+def viewProject(request, project_id):
+    project = Project.objects.filter(pk=project_id)
+    return render(request, 'timemanager/view_project.html', {'project': project})
