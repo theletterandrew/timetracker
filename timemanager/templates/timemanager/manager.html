@@ -11,17 +11,20 @@
 </div>
 {% if projects %}
 {% for project in projects %}
+  {% if forloop.first %}
 <div class="row">
+  {% endif %}
   <div class="col-6">
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">{{ project.name }}</h4>
         <p class="card-text">{{ project.description }}</p>
-        <a href="#" class="btn btn-primary">Track Project</a>
+        <a href="/manager/viewproject/{{ project.id }}" class="btn btn-primary">Track Project</a>
       </div>
     </div>
   </div>
-</div>
+  {% if forloop.counter|divisibleby:2 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
 {% endfor %}
 {% else %}
 <h3>You don't have any projects yet! Add a new project to get started.</h3>

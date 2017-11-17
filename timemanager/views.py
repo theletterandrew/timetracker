@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .models import Project
 from timemanager.forms import ProjectForm
@@ -23,3 +23,7 @@ def add(request):
         form = ProjectForm()
     args = {'form': form}
     return render(request, 'timemanager/add.html', args)
+
+def viewProject(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    return render(request, 'timemanager/view_project.html', {'project': project})

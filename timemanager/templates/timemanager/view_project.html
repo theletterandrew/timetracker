@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="text-center">{{ project.name }}</h1>
+</div>
+<div class="row">
+  <div class="col-6">
+    <h2>Project Details:</h2>
+    <p>Name: {{ project.name }}</p>
+    <p>Description: {{ project.description }}</p>
+    <p>Created on: <time datetime="{{ project.pub_date|date:"Y-m-d" }}">{{ project.pub_date|date:"l, F j, Y" }}</time></p>
+    <a href="#" class="btn btn-primary btn-block">Edit Details</a>
+  </div>
+</div>
+
+{% endblock %}
